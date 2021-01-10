@@ -27,7 +27,7 @@ using System.Reflection;
 using System.Runtime.InteropServices;
 
 [assembly: AssemblyTitle("Steamless.Unpacker.Variant20.x86")]
-[assembly: AssemblyDescription("Steamless SteamStub Variant v2.0 (x86) Unpacker")]
+[assembly: AssemblyDescription("Steamless SteamStub Variant 2.0 (x86) Unpacker")]
 [assembly: AssemblyConfiguration("Release")]
 [assembly: AssemblyCompany("atom0s")]
 [assembly: AssemblyProduct("Steamless.Unpacker.Variant20.x86")]
@@ -35,6 +35,6 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 [assembly: ComVisible(false)]
-[assembly: Guid("a40154cd-a0fd-4371-8099-ce277e0989af")]
-[assembly: AssemblyVersion("1.0.0.6")]
-[assembly: AssemblyFileVersion("1.0.0.6")]
+[assembly: Guid("4f11f26d-2946-467f-a4e9-9e2a619a1fd3")]
+[assembly: AssemblyVersion("1.0.0.0")]
+[assembly: AssemblyFileVersion("1.0.0.0")]

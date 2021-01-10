@@ -23,43 +23,18 @@
  * No warranties are given.
  */
 
-namespace Steamless.Unpacker.Variant20.x86.Classes
-{
-    using System;
+using System.Reflection;
+using System.Runtime.InteropServices;
 
-    public static class SteamStubHelpers
-    {
-        /// <summary>
-        /// Xor decrypts the given data starting with the given key, if any.
-        /// 
-        /// @note    If no key is given (0) then the first key is read from the first
-        ///          4 bytes inside of the data given.
-        /// </summary>
-        /// <param name="data">The data to xor decode.</param>
-        /// <param name="size">The size of the data to decode.</param>
-        /// <param name="key">The starting xor key to decode with.</param>
-        /// <returns></returns>
-        public static uint SteamXor(ref byte[] data, uint size, uint key = 0)
-        {
-            var offset = (uint)0;
-
-            // Read the first key as the base xor key if we had none given..
-            if (key == 0)
-            {
-                offset += 4;
-                key = BitConverter.ToUInt32(data, 0);
-            }
-
-            // Decode the data..
-            for (var x = offset; x < size; x += 4)
-            {
-                var val = BitConverter.ToUInt32(data, (int)x);
-                Array.Copy(BitConverter.GetBytes(val ^ key), 0, data, x, 4);
-
-                key = val;
-            }
-
-            return key;
-        }
-    }
-}
+[assembly: AssemblyTitle("Steamless.Unpacker.Variant21.x86")]
+[assembly: AssemblyDescription("Steamless SteamStub Variant v2.1 (x86) Unpacker")]
+[assembly: AssemblyConfiguration("Release")]
+[assembly: AssemblyCompany("atom0s")]
+[assembly: AssemblyProduct("Steamless.Unpacker.Variant21.x86")]
+[assembly: AssemblyCopyright("Copyright © atom0s 2015 - 2020")]
+[assembly: AssemblyTrademark("")]
+[assembly: AssemblyCulture("")]
+[assembly: ComVisible(false)]
+[assembly: Guid("a40154cd-a0fd-4371-8099-ce277e0989af")]
+[assembly: AssemblyVersion("1.0.0.7")]
+[assembly: AssemblyFileVersion("1.0.0.7")]

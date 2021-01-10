@@ -23,43 +23,16 @@
  * No warranties are given.
  */
 
-namespace Steamless.Unpacker.Variant20.x86.Classes
+namespace Steamless.Unpacker.Variant21.x86.Classes
 {
-    using System;
-
-    public static class SteamStubHelpers
+    /// <summary>
+    /// Steam Stub Variant 2.1 DRM Flags
+    /// </summary>
+    public enum DrmFlags
     {
-        /// <summary>
-        /// Xor decrypts the given data starting with the given key, if any.
-        /// 
-        /// @note    If no key is given (0) then the first key is read from the first
-        ///          4 bytes inside of the data given.
-        /// </summary>
-        /// <param name="data">The data to xor decode.</param>
-        /// <param name="size">The size of the data to decode.</param>
-        /// <param name="key">The starting xor key to decode with.</param>
-        /// <returns></returns>
-        public static uint SteamXor(ref byte[] data, uint size, uint key = 0)
-        {
-            var offset = (uint)0;
-
-            // Read the first key as the base xor key if we had none given..
-            if (key == 0)
-            {
-                offset += 4;
-                key = BitConverter.ToUInt32(data, 0);
-            }
-
-            // Decode the data..
-            for (var x = offset; x < size; x += 4)
-            {
-                var val = BitConverter.ToUInt32(data, (int)x);
-                Array.Copy(BitConverter.GetBytes(val ^ key), 0, data, x, 4);
-
-                key = val;
-            }
-
-            return key;
-        }
+        NoModuleVerification = 0x02,
+        NoEncryption = 0x04,
+        NoOwnershipCheck = 0x10,
+        NoDebuggerCheck = 0x20,
     }
 }
